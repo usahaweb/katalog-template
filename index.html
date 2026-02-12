@@ -1,0 +1,19 @@
+<div id="app"></div>
+
+<script>
+fetch("https://script.google.com/macros/s/AKfycbxcmmNJs0NvOIM-GfgIGfOVdfmGs_nJkc_yQnuTAdj15-UMvU6k6KYyd6HalbPFNF-v/exec")
+  .then(res => res.json())
+  .then(data => {
+    let html = "";
+    data.forEach(item => {
+      html += `
+        <div class="card">
+          <h2>${item.title}</h2>
+          <img src="${item.image}">
+          <p>${item.description}</p>
+        </div>
+      `;
+    });
+    document.getElementById("app").innerHTML = html;
+  });
+</script>
